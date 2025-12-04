@@ -149,6 +149,6 @@ mod tests {
         assert_eq!(count_all_invalid(2121212118, 2121212124), (1, 2121212121));
 
         let result = part_two(&advent_of_code::template::read_file("examples", DAY));
-        assert_eq!(result, None);
+        assert_eq!(result, Some(4174379265));
     }
 }
