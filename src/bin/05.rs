@@ -39,7 +39,7 @@ pub fn part_one(input: &str) -> Option<u64> {
 }
 
 pub fn part_two(input: &str) -> Option<u64> {
-    let (bounds, numbers) = parse_input(input);
+    let (bounds, _numbers) = parse_input(input);
     let mut count: u64 = 0;
     // sort bounds in ascending order of lower bound
     let mut bounds = bounds;
@@ -50,7 +50,7 @@ pub fn part_two(input: &str) -> Option<u64> {
         if merged_bounds.is_empty() {
             merged_bounds.push((lower, upper));
         } else {
-            let (last_lower, last_upper) = merged_bounds.last_mut().unwrap();
+            let (_last_lower, last_upper) = merged_bounds.last_mut().unwrap();
             if lower <= *last_upper {
                 // overlap
                 *last_upper = (*last_upper).max(upper);

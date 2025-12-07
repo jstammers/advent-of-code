@@ -7,6 +7,20 @@ Solutions for [Advent of Code](https://adventofcode.com/) in [Rust](https://www.
 <!--- advent_readme_stars table --->
 
 <!--- benchmarking table --->
+## Benchmarks
+
+| Day | Part 1 | Part 2 |
+| :---: | :---: | :---:  |
+| [Day 1](./src/bin/01.rs) | `50.4µs` | `49.6µs` |
+| [Day 2](./src/bin/02.rs) | `86.1ms` | `133.1ms` |
+| [Day 3](./src/bin/03.rs) | `46.4µs` | `113.4µs` |
+| [Day 4](./src/bin/04.rs) | `64.8µs` | `1.4ms` |
+| [Day 5](./src/bin/05.rs) | `98.9µs` | `34.0µs` |
+| [Day 6](./src/bin/06.rs) | `61.4µs` | `350.6µs` |
+| [Day 7](./src/bin/07.rs) | `37.6µs` | `33.6µs` |
+
+**Total: 221.54ms**
+<!--- benchmarking table --->
 
 ---
 
