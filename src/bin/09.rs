@@ -41,7 +41,7 @@ pub fn part_one(input: &str) -> Option<u64> {
 }
 
 pub fn part_two(input: &str) -> Option<u64> {
-    let mut coords = parse_input(input);
+    let coords = parse_input(input);
     let mut edges: Vec<(&(u64, u64), &(u64, u64))> =
         coords.windows(2).map(|v| (&v[0], &v[1])).collect();
 
@@ -63,7 +63,7 @@ pub fn part_two(input: &str) -> Option<u64> {
     let max_area = possible_rects
         .into_iter()
         .rev()
-        .find(|(p1, p2, area)| {
+        .find(|(p1, p2, _area)| {
             edges.iter().all(|(start, end)| {
                 let before = p1.0.max(p2.0) <= start.0.min(end.0);
                 let after = p1.0.min(p2.0) >= start.0.max(end.0);
