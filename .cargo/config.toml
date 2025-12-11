@@ -10,3 +10,5 @@ time = "run --quiet --release -- time"
 
 [env]
 AOC_YEAR = "2025"
+LIBRARY_PATH = "/opt/homebrew/opt/cbc/lib"
+DYLD_LIBRARY_PATH = "/opt/homebrew/opt/cbc/lib"
