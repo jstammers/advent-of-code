@@ -245,17 +245,6 @@ mod tests {
 
     #[test]
     fn test_part_two() {
-        // let buttons = vec![
-        //     vec![3],    // Button (3): affects counter 3
-        //     vec![1, 3], // Button (1,3): affects counters 1 and 3
-        //     vec![2],    // Button (2): affects counter 2
-        //     vec![2, 3], // Button (2,3): affects counters 2 and 3
-        //     vec![0, 2], // Button (0,2): affects counters 0 and 2
-        //     vec![0, 1], // Button (0,1): affects counters 0 and 1
-        // ];
-        // let target = vec![3, 5, 4, 7];
-        // button_values = build_columns_from_toggles(buttons, target.len());
-        // assert_eq!(min_pushes_joltages(button_values, target), 10);
         let result = part_two(&advent_of_code::template::read_file("examples", DAY));
         assert_eq!(result, Some(33));
     }
