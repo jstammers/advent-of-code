@@ -1,3 +1,4 @@
+use memoize::memoize;
 advent_of_code::solution!(2);
 fn split_ranges(input: &str) -> Vec<(u64, u64)> {
     let mut ranges: Vec<(u64, u64)> = Vec::new();
@@ -17,6 +18,7 @@ fn split_ranges(input: &str) -> Vec<(u64, u64)> {
     ranges
 }
 
+#[memoize]
 fn is_invalid(x: i64) -> bool {
     // invalid if the string representation contains a sequence of digits repeated twice
 
@@ -27,6 +29,7 @@ fn is_invalid(x: i64) -> bool {
     return start_string == end_string;
 }
 
+#[memoize]
 fn is_invalid_all(x: i64) -> bool {
     // invalid if the string representation contains a sequence of digits repeated at least twice
 
