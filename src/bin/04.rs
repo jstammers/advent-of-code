@@ -74,7 +74,7 @@ pub fn part_two(input: &str) -> Option<u64> {
     loop {
         let (count, idx_to_remove) = count_all_neighbors(&grid);
         if count == 0 {
-            break 0;
+            break ;
         }
         total_count += count;
         grid = recreate_graph(&grid, idx_to_remove);
