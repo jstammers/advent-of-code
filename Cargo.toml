@@ -25,7 +25,7 @@ test_lib = []
 # Template dependencies
 chrono = { version = "0.4.38", optional = true }
 dhat = { version = "0.3.3", optional = true }
-good_lp = {version = "1.14.2", features = ["microlp"] }
+good_lp = {version = "1.14.2", features = ["microlp"], default-features = false }
 kiddo = "5.2.3"
 microlp = "0.2.11"
 minilp = "0.2.2"
