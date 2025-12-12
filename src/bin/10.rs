@@ -1,4 +1,4 @@
-use good_lp::{Expression, Solution, SolverModel, constraint, default_solver, variables};
+use good_lp::{Expression, Solution, SolverModel, constraint, microlp, variables};
 use regex::Regex;
 use std::collections::{HashSet, VecDeque};
 
@@ -150,7 +150,7 @@ fn solve_lp_relaxation(buttons: Vec<Vec<u16>>, target_joltages: Vec<u16>) -> Opt
     }
     let solution = constraints
         .iter()
-        .fold(vars.minimise(objective).using(default_solver), |pb, c| {
+        .fold(vars.minimise(objective).using(microlp), |pb, c| {
             pb.with(c.clone())
         })
         .solve()

@@ -18,14 +18,16 @@ debug = 1
 dhat-heap = ["dhat"]
 today = ["chrono"]
 test_lib = []
+# good_lp = ["dep:microlp"]
 
 [dependencies]
 
 # Template dependencies
 chrono = { version = "0.4.38", optional = true }
 dhat = { version = "0.3.3", optional = true }
-good_lp = "1.14.2"
+good_lp = {version = "1.14.2", features = ["microlp"] }
 kiddo = "5.2.3"
+microlp = "0.2.11"
 minilp = "0.2.2"
 ordered-float = "5.1.0"
 pico-args = "0.5.0"
