@@ -1,27 +1,33 @@
 advent_of_code::solution!(4);
-    
+
 fn parse_grid(input: &str) -> Vec<Vec<char>> {
     let grid: Vec<Vec<char>> = input
         .lines()
-        .map(|line| {
-            line.chars().collect::<Vec<char>>()
-        })
+        .map(|line| line.chars().collect::<Vec<char>>())
         .collect();
     grid
 }
 
 fn count_neighbors(grid: &Vec<Vec<char>>, row: usize, col: usize) -> u64 {
     let directions = [
-        (-1, -1), (-1, 0), (-1, 1),
-        (0, -1),          (0, 1),
-        (1, -1), (1, 0), (1, 1),
+        (-1, -1),
+        (-1, 0),
+        (-1, 1),
+        (0, -1),
+        (0, 1),
+        (1, -1),
+        (1, 0),
+        (1, 1),
     ];
     let mut count = 0;
     for (dr, dc) in directions.iter() {
         let new_row = row as isize + dr;
         let new_col = col as isize + dc;
-        if new_row >= 0 && new_row < grid.len() as isize &&
-           new_col >= 0 && new_col < grid[0].len() as isize {
+        if new_row >= 0
+            && new_row < grid.len() as isize
+            && new_col >= 0
+            && new_col < grid[0].len() as isize
+        {
             if grid[new_row as usize][new_col as usize] == '@' {
                 count += 1;
             }
@@ -64,7 +70,7 @@ pub fn part_one(input: &str) -> Option<u64> {
 pub fn part_two(input: &str) -> Option<u64> {
     let mut grid = parse_grid(input);
     let mut total_count: i32 = 0;
-        
+
     loop {
         let (count, idx_to_remove) = count_all_neighbors(&grid);
         if count == 0 {
@@ -72,9 +78,8 @@ pub fn part_two(input: &str) -> Option<u64> {
         }
         total_count += count;
         grid = recreate_graph(&grid, idx_to_remove);
-    };
+    }
     Some(total_count as u64)
-    
 }
 
 #[cfg(test)]

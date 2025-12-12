@@ -83,11 +83,10 @@ mod tests {
 
     #[test]
     fn test_part_one() {
-
         // * In `*98*7654321111111`, you can make the largest joltage possible, *`98`*, by turning on the first two batteries.
         // * In `*8*1111111111111*9*`, you can make the largest joltage possible by turning on the batteries labeled `8` and `9`, producing *`89`* jolts.
         // * In `2342342342342*78*`, you can make *`78`* by turning on the last two batteries (marked `7` and `8`).
-        // * In `818181*9*1111*2*111`, the largest joltage you can produce is *`92`*. 
+        // * In `818181*9*1111*2*111`, the largest joltage you can produce is *`92`*.
 
         assert_eq!(largest_joltage("9876543211111", 2), 98);
         assert_eq!(largest_joltage("81111111111119", 2), 89);
@@ -99,9 +98,8 @@ mod tests {
 
     #[test]
     fn test_part_two() {
-
-//         * In `*987654321111*111`, the largest joltage can be found by turning on everything except some `1`s at the end to produce `*987654321111*`.
-            // * In the digit sequence `*81111111111*111*9*`, the largest joltage can be found by turning on everything except some `1`s, producing `*811111111119*`.
+        //         * In `*987654321111*111`, the largest joltage can be found by turning on everything except some `1`s at the end to produce `*987654321111*`.
+        // * In the digit sequence `*81111111111*111*9*`, the largest joltage can be found by turning on everything except some `1`s, producing `*811111111119*`.
         // * In `23*4*2*34234234278*`, the largest joltage can be found by turning on everything except a `2` battery, a `3` battery, and another `2` battery near the start to produce `*434234234278*`.
         // * In `*8*1*8*1*8*1*911112111*`, the joltage `*888911112111*` is produced by turning on everything except some `1`s near the front.
 
@@ -109,9 +107,8 @@ mod tests {
 
         assert_eq!(largest_joltage("987654321111111", 12), 987654321111);
         assert_eq!(largest_joltage("81111111111119", 12), 811111111119);
-        assert_eq!(largest_joltage("234234234234278", 12),434234234278);
-        assert_eq!(largest_joltage("818181911112111", 12),888911112111);
-
+        assert_eq!(largest_joltage("234234234234278", 12), 434234234278);
+        assert_eq!(largest_joltage("818181911112111", 12), 888911112111);
 
         let result = part_two(&advent_of_code::template::read_file("examples", DAY));
         assert_eq!(result, Some(3121910778619));

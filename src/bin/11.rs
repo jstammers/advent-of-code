@@ -1,15 +1,11 @@
 use std::collections::HashMap;
 advent_of_code::solution!(11);
 
-fn count_paths(
-    map: &HashMap<String, Vec<String>>,
-    start_key: &str,
-    end_key: &str,
-) -> u64 {
+fn count_paths(map: &HashMap<String, Vec<String>>, start_key: &str, end_key: &str) -> u64 {
     if start_key == end_key {
         return 1;
     }
-    
+
     let mut memo = HashMap::new();
     count_paths_dp(map, start_key, end_key, &mut memo)
 }
@@ -23,17 +19,23 @@ fn count_paths_dp(
     if let Some(&cached) = memo.get(current) {
         return cached;
     }
-    
-    let paths = map.get(current)
+
+    let paths = map
+        .get(current)
         .map(|neighbors| {
-            neighbors.iter()
+            neighbors
+                .iter()
                 .map(|neighbor| {
-                    if neighbor == end_key { 1 } else { count_paths_dp(map, neighbor, end_key, memo) }
+                    if neighbor == end_key {
+                        1
+                    } else {
+                        count_paths_dp(map, neighbor, end_key, memo)
+                    }
                 })
                 .sum()
         })
         .unwrap_or(0);
-    
+
     memo.insert(current.to_string(), paths);
     paths
 }

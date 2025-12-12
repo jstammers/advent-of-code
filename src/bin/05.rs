@@ -1,23 +1,23 @@
 advent_of_code::solution!(5);
 
-fn parse_input(input: &str) -> (Vec<(u64,u64)>, Vec<u64>){
+fn parse_input(input: &str) -> (Vec<(u64, u64)>, Vec<u64>) {
     //parse the input into a vector of tuples of lower and upper bounds and a vector of numbers to check
-    
-    let mut bounds: Vec<(u64,u64)> = Vec::new();
+
+    let mut bounds: Vec<(u64, u64)> = Vec::new();
     let mut numbers: Vec<u64> = Vec::new();
-    
+
     // split on double newlines
     // first part is the bounds
     // second part is the numbers to check
     let parts: Vec<&str> = input.split("\n\n").collect();
     let bounds_part = parts[0];
     let numbers_part = parts[1];
-    
+
     for line in bounds_part.lines() {
         let nums: Vec<u64> = line.split('-').map(|x| x.parse().unwrap()).collect();
         bounds.push((nums[0], nums[1]));
     }
-    
+
     for line in numbers_part.lines() {
         let num: u64 = line.parse().unwrap();
         numbers.push(num);
@@ -45,7 +45,7 @@ pub fn part_two(input: &str) -> Option<u64> {
     let mut bounds = bounds;
     bounds.sort_by(|a, b| a.0.cmp(&b.0));
     //iterate through bounds and create new bounds if they overlap
-    let mut merged_bounds: Vec<(u64,u64)> = Vec::new();
+    let mut merged_bounds: Vec<(u64, u64)> = Vec::new();
     for (lower, upper) in bounds {
         if merged_bounds.is_empty() {
             merged_bounds.push((lower, upper));

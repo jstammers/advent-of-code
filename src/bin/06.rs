@@ -1,12 +1,11 @@
-
 advent_of_code::solution!(6);
 
 fn parse_input(input: &str) -> (Vec<Vec<u64>>, Vec<char>) {
     //parse the input into a vector of vectors of numbers to check and a vector of operations
     // each vector is a column from the input and the last elecment is the operation to perform on that column
-    // 
+    //
     // split on newlines
-    // 
+    //
     let mut columns: Vec<Vec<u64>> = Vec::new();
     let mut operations: Vec<char> = Vec::new();
     let lines: Vec<&str> = input.lines().collect();
@@ -15,7 +14,7 @@ fn parse_input(input: &str) -> (Vec<Vec<u64>>, Vec<char>) {
     for _ in 0..num_columns {
         columns.push(Vec::new());
     }
-    for (j,line) in lines.iter().enumerate(){
+    for (j, line) in lines.iter().enumerate() {
         let parts: Vec<&str> = line.split_whitespace().collect();
         if j == num_lines - 1 {
             // last line is operations

@@ -223,7 +223,8 @@ pub fn part_two(input: &str) -> Option<u64> {
     let machines = parse_input(input);
     let mut total_pushes = 0;
     for machine in machines {
-        let columns = build_columns_from_toggles(machine.toggle_values, machine.target_joltages.len());
+        let columns =
+            build_columns_from_toggles(machine.toggle_values, machine.target_joltages.len());
         let pushes = solve_lp_relaxation(columns, machine.target_joltages);
         total_pushes += pushes.unwrap_or(0);
     }
